@@ -20,7 +20,7 @@ export default function About() {
                 <img
                   src="/images/usama-profile.png"
                   alt="Usama Bin Ejaz"
-                  className="w-full h-full object-cover scale-150 object-[center_30%]"
+                  className="w-full h-full object-cover scale-[1.9] object-[29%_10%]"
                 />
               </div>
             </ScrollReveal>
