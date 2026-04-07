@@ -16,7 +16,7 @@ export default function About() {
         <Container className="relative z-10">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
             <ScrollReveal>
-              <div className="w-56 h-56 md:w-72 md:h-72 mx-auto md:ml-auto md:mr-8 rounded-full overflow-hidden border-4 border-coral/20 animate-glow-pulse">
+              <div className="w-56 h-56 md:w-72 md:h-72 mx-auto md:ml-auto md:mr-0 rounded-full overflow-hidden border-4 border-coral/20 animate-glow-pulse">
                 <img
                   src="/images/usama-profile.png"
                   alt="Usama Bin Ejaz"
