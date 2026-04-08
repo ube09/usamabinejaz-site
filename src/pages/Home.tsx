@@ -52,7 +52,7 @@ export default function Home() {
   return (
     <>
       {/* Hero — Neural Network Background */}
-      <section className="relative min-h-screen flex items-center pt-20 overflow-hidden">
+      <section className="relative min-h-[100dvh] flex items-center pt-20 overflow-hidden">
         <NeuralNetwork />
         <FloatingOrbs />
         <Container className="relative z-10 text-center">
