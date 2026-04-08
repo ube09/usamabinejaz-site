@@ -62,11 +62,11 @@ export default function Home() {
             </h1>
           </ScrollReveal>
           <ScrollReveal delay={0.2}>
-            <p className="mt-6 text-lg md:text-xl text-text-muted font-light">
+            <p className="mt-6 text-lg md:text-xl text-text-muted font-light max-w-full overflow-hidden">
               I build{' '}
               <Typewriter
                 words={typewriterWords}
-                className="text-text-primary font-semibold"
+                className="text-text-primary font-semibold inline-block"
               />
             </p>
           </ScrollReveal>
