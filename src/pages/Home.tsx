@@ -57,7 +57,7 @@ export default function Home() {
         <FloatingOrbs />
         <Container className="relative z-10 text-center">
           <ScrollReveal>
-            <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold leading-tight">
+            <h1 className="text-4xl sm:text-6xl md:text-7xl lg:text-8xl font-bold leading-tight">
               <span className="gradient-text">AI that ships.</span>
             </h1>
           </ScrollReveal>

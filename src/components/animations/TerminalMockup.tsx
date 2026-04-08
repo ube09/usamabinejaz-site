@@ -76,9 +76,9 @@ export default function TerminalMockup() {
   })
 
   return (
-    <div className="relative max-w-lg mx-auto">
+    <div className="relative max-w-lg mx-auto overflow-hidden">
       {/* Glow effect behind terminal */}
-      <div className="absolute -inset-4 bg-gradient-to-r from-coral/20 via-violet/20 to-coral/20 rounded-2xl blur-xl opacity-60" />
+      <div className="absolute inset-0 bg-gradient-to-r from-coral/20 via-violet/20 to-coral/20 rounded-2xl blur-xl opacity-60" />
 
       <div className="relative bg-[#0d1117] rounded-xl border border-gray-800 shadow-2xl overflow-hidden">
         {/* Title bar */}
@@ -90,8 +90,8 @@ export default function TerminalMockup() {
         </div>
 
         {/* Code */}
-        <pre className="p-5 font-mono text-xs sm:text-sm leading-relaxed overflow-x-auto">
-          <code className="whitespace-pre">
+        <pre className="p-5 font-mono text-xs sm:text-sm leading-relaxed overflow-hidden">
+          <code className="whitespace-pre-wrap break-words">
             {renderedLines}
             <span className="animate-blink text-coral">█</span>
           </code>
