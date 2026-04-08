@@ -16,7 +16,7 @@ export default function App() {
   const location = useLocation()
 
   return (
-    <div className="min-h-screen flex flex-col bg-bg-primary">
+    <div className="min-h-screen flex flex-col bg-bg-primary overflow-x-hidden">
       <CustomCursor />
       <ScrollToTop />
       <Navbar />
