@@ -27,8 +27,8 @@ export default function Services() {
       {/* Service Blocks */}
       <section className="py-16 relative overflow-hidden">
         <div className="absolute inset-0 overflow-hidden pointer-events-none">
-          <div className="absolute -top-20 right-0 w-72 h-72 bg-coral/5 rounded-full blur-3xl animate-float-slow" />
-          <div className="absolute bottom-0 -left-20 w-72 h-72 bg-violet/5 rounded-full blur-3xl animate-float-medium" />
+          <div className="absolute -top-20 right-0 w-72 h-72 bg-coral/10 rounded-full blur-2xl animate-float-slow will-change-transform" />
+          <div className="absolute bottom-0 -left-20 w-72 h-72 bg-violet/10 rounded-full blur-2xl animate-float-medium will-change-transform" />
         </div>
         <Container className="relative z-10">
           <div className="space-y-16">
@@ -111,10 +111,10 @@ export default function Services() {
       </section>
 
       {/* CTA */}
-      <section className="py-24 bg-gradient-to-br from-coral/5 via-violet/5 to-cta/5 relative overflow-hidden">
+      <section className="py-24 bg-gradient-to-br from-coral/10 via-violet/10 to-cta/10 relative overflow-hidden">
         <div className="absolute inset-0 overflow-hidden pointer-events-none">
-          <div className="absolute -top-20 -right-20 w-64 h-64 bg-coral/10 rounded-full blur-3xl animate-float-slow" />
-          <div className="absolute -bottom-20 -left-20 w-64 h-64 bg-violet/10 rounded-full blur-3xl animate-float-medium" />
+          <div className="absolute -top-20 -right-20 w-64 h-64 bg-coral/15 rounded-full blur-2xl animate-float-slow will-change-transform" />
+          <div className="absolute -bottom-20 -left-20 w-64 h-64 bg-violet/15 rounded-full blur-2xl animate-float-medium will-change-transform" />
         </div>
         <Container className="text-center relative z-10">
           <ScrollReveal>

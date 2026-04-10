@@ -69,8 +69,8 @@ export default function Contact() {
 
       <section className="py-16 relative overflow-hidden">
         <div className="absolute inset-0 overflow-hidden pointer-events-none">
-          <div className="absolute -top-20 -right-20 w-72 h-72 bg-coral/5 rounded-full blur-3xl animate-float-slow" />
-          <div className="absolute -bottom-20 -left-20 w-72 h-72 bg-violet/5 rounded-full blur-3xl animate-float-medium" />
+          <div className="absolute -top-20 -right-20 w-72 h-72 bg-coral/10 rounded-full blur-2xl animate-float-slow will-change-transform" />
+          <div className="absolute -bottom-20 -left-20 w-72 h-72 bg-violet/10 rounded-full blur-2xl animate-float-medium will-change-transform" />
         </div>
         <Container className="relative z-10">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 max-w-5xl mx-auto">
@@ -93,7 +93,7 @@ export default function Contact() {
                       required
                       value={form.name}
                       onChange={e => setForm({ ...form, name: e.target.value })}
-                      className="w-full px-4 py-3 rounded-[var(--radius-button)] border border-gray-200 bg-surface focus:outline-none focus:ring-2 focus:ring-coral/30 focus:border-coral transition-colors"
+                      className="w-full px-4 py-3 rounded-[var(--radius-button)] border border-white/10 bg-surface text-text-primary focus:outline-none focus:ring-2 focus:ring-coral/30 focus:border-coral transition-colors"
                     />
                   </div>
                   <div>
@@ -103,7 +103,7 @@ export default function Contact() {
                       required
                       value={form.email}
                       onChange={e => setForm({ ...form, email: e.target.value })}
-                      className="w-full px-4 py-3 rounded-[var(--radius-button)] border border-gray-200 bg-surface focus:outline-none focus:ring-2 focus:ring-coral/30 focus:border-coral transition-colors"
+                      className="w-full px-4 py-3 rounded-[var(--radius-button)] border border-white/10 bg-surface text-text-primary focus:outline-none focus:ring-2 focus:ring-coral/30 focus:border-coral transition-colors"
                     />
                   </div>
                   <div>
@@ -113,7 +113,7 @@ export default function Contact() {
                       required
                       value={form.subject}
                       onChange={e => setForm({ ...form, subject: e.target.value })}
-                      className="w-full px-4 py-3 rounded-[var(--radius-button)] border border-gray-200 bg-surface focus:outline-none focus:ring-2 focus:ring-coral/30 focus:border-coral transition-colors"
+                      className="w-full px-4 py-3 rounded-[var(--radius-button)] border border-white/10 bg-surface text-text-primary focus:outline-none focus:ring-2 focus:ring-coral/30 focus:border-coral transition-colors"
                     />
                   </div>
                   <div>
@@ -123,7 +123,7 @@ export default function Contact() {
                       rows={5}
                       value={form.message}
                       onChange={e => setForm({ ...form, message: e.target.value })}
-                      className="w-full px-4 py-3 rounded-[var(--radius-button)] border border-gray-200 bg-surface focus:outline-none focus:ring-2 focus:ring-coral/30 focus:border-coral transition-colors resize-none"
+                      className="w-full px-4 py-3 rounded-[var(--radius-button)] border border-white/10 bg-surface text-text-primary focus:outline-none focus:ring-2 focus:ring-coral/30 focus:border-coral transition-colors resize-none"
                     />
                   </div>
                   {status === 'error' && (
@@ -171,7 +171,7 @@ export default function Contact() {
                   </div>
                 </div>
 
-                <div className="p-6 bg-bg-secondary rounded-[var(--radius-card)] border border-gray-100">
+                <div className="p-6 bg-bg-secondary rounded-[var(--radius-card)] border border-white/10">
                   <p className="text-sm text-text-muted">
                     <strong className="text-text-primary">Prefer Upwork?</strong> For formal proposals and milestone-based contracts,{' '}
                     <a href="https://www.upwork.com/freelancers/~0114a62f0bcb3d56fa" target="_blank" rel="noopener noreferrer" className="text-coral hover:underline">

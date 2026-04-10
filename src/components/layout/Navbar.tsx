@@ -26,7 +26,7 @@ export default function Navbar() {
   return (
     <nav className={cn(
       'fixed top-0 left-0 right-0 z-50 transition-all duration-300',
-      scrolled ? 'bg-bg-primary/90 backdrop-blur-md shadow-sm' : 'bg-transparent'
+      scrolled ? 'bg-bg-primary/90 backdrop-blur-md shadow-lg shadow-black/30 border-b border-white/5' : 'bg-transparent'
     )}>
       <Container className="flex items-center justify-between h-16 md:h-20">
         <Link to="/" className="flex items-center gap-1 text-xl font-bold text-text-primary">
@@ -62,7 +62,7 @@ export default function Navbar() {
       </Container>
 
       {mobileOpen && (
-        <div className="md:hidden bg-bg-primary/95 backdrop-blur-md border-t border-gray-100">
+        <div className="md:hidden bg-bg-primary/95 backdrop-blur-md border-t border-white/5">
           <Container className="py-4 flex flex-col gap-4">
             {links.map(link => (
               <NavLink

@@ -26,14 +26,14 @@ const products = [
   {
     name: 'NeuroMail',
     tagline: 'AI-powered email assistant with agent orchestration',
-    image: '/images/neuromail/neuromail-draft.webp',
+    image: '/images/neuromail/neuromail-dashboard-dark.webp',
     tech: ['Electron', 'LangGraph', 'OpenAI', 'FastAPI'],
     link: '/products#neuromail',
   },
   {
     name: 'Nexus',
     tagline: 'Cross-platform team collaboration suite',
-    image: '/images/nexus/nexus-dashboard.webp',
+    image: '/images/nexus/nexus-dashboard-dark.webp',
     tech: ['Next.js', 'React Native', 'PostgreSQL', 'Socket.io'],
     link: '/products#nexus',
   },
@@ -192,7 +192,7 @@ export default function Home() {
             {[...techStack, ...techStack].map((tech, i) => (
               <span
                 key={`${tech}-${i}`}
-                className="mx-3 px-5 py-2 rounded-full bg-surface text-text-muted text-sm font-mono border border-gray-100 hover:text-coral hover:border-coral/30 hover:shadow-[0_0_15px_rgba(255,107,107,0.1)] transition-all"
+                className="mx-3 px-5 py-2 rounded-full bg-surface text-text-muted text-sm font-mono border border-white/10 hover:text-coral hover:border-coral/30 hover:shadow-[0_0_15px_rgba(74,144,217,0.15)] transition-all"
               >
                 {tech}
               </span>
@@ -204,8 +204,8 @@ export default function Home() {
       {/* CTA — Dark gradient */}
       <section className="py-24 section-dark noise-overlay relative overflow-hidden">
         <div className="absolute inset-0 overflow-hidden pointer-events-none">
-          <div className="absolute -top-40 -right-40 w-96 h-96 bg-coral/10 rounded-full blur-3xl animate-float-slow" />
-          <div className="absolute -bottom-40 -left-40 w-96 h-96 bg-violet/10 rounded-full blur-3xl animate-float-medium" />
+          <div className="absolute -top-40 -right-40 w-96 h-96 bg-coral/10 rounded-full blur-2xl animate-float-slow will-change-transform" />
+          <div className="absolute -bottom-40 -left-40 w-96 h-96 bg-violet/10 rounded-full blur-2xl animate-float-medium will-change-transform" />
         </div>
         <Container className="text-center relative z-10">
           <ScrollReveal>

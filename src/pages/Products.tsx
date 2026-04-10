@@ -65,7 +65,7 @@ export default function Products() {
             </ScrollReveal>
             <ScrollReveal delay={0.2}>
               <div className="rounded-[var(--radius-card)] overflow-hidden shadow-2xl border border-gray-800">
-                <img src="/images/neuromail/neuromail-draft.webp" alt="NeuroMail Draft Generator" className="w-full" loading="lazy" />
+                <img src="/images/neuromail/neuromail-draft-dark.webp" alt="NeuroMail Draft Generator" className="w-full" loading="lazy" />
               </div>
             </ScrollReveal>
           </div>
@@ -90,8 +90,8 @@ export default function Products() {
         <Container className="relative z-10">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <ScrollReveal delay={0.2} className="order-2 lg:order-1">
-              <div className="rounded-[var(--radius-card)] overflow-hidden shadow-lg border border-gray-100">
-                <img src="/images/nexus/nexus-dashboard.webp" alt="Nexus Dashboard" className="w-full" loading="lazy" />
+              <div className="rounded-[var(--radius-card)] overflow-hidden shadow-lg border border-white/10">
+                <img src="/images/nexus/nexus-dashboard-dark.webp" alt="Nexus Dashboard" className="w-full" loading="lazy" />
               </div>
             </ScrollReveal>
             <ScrollReveal className="order-1 lg:order-2">

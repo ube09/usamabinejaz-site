@@ -40,7 +40,7 @@ export const projects: Project[] = [
       { label: 'Licensing Tiers', value: 3, suffix: '' },
     ],
     tech: ['Electron', 'React', 'FastAPI', 'LangGraph', 'OpenAI', 'spaCy', 'Gmail SDK'],
-    heroImage: '/images/neuromail/neuromail-draft.webp',
+    heroImage: '/images/neuromail/neuromail-draft-dark.webp',
     screenshots: [
       '/images/neuromail/neuromail-dashboard.webp',
       '/images/neuromail/neuromail-labelsuggestion.webp',
@@ -60,7 +60,7 @@ export const projects: Project[] = [
       { label: 'Scoring Algorithms', value: 3, suffix: '' },
     ],
     tech: ['Next.js', 'React', 'TypeScript', 'Tailwind CSS', 'Recharts', 'XLSX'],
-    heroImage: '/images/bi-dashboard/bi-dashboard.webp',
+    heroImage: '/images/bi-dashboard/bi-dashboard-dark.webp',
     screenshots: ['/images/bi-dashboard/bi-dashboard-dark.webp'],
   },
   {
@@ -76,7 +76,7 @@ export const projects: Project[] = [
       { label: 'Auth Roles', value: 4, suffix: '' },
     ],
     tech: ['Next.js', 'React Native', 'Expo', 'PostgreSQL', 'Prisma', 'Socket.io', 'TypeScript'],
-    heroImage: '/images/nexus/nexus-dashboard.webp',
+    heroImage: '/images/nexus/nexus-dashboard-dark.webp',
     screenshots: [
       '/images/nexus/nexus-chatthread.webp',
       '/images/nexus/nexus-tasklist.webp',

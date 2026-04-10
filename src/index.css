@@ -5,19 +5,19 @@
   --font-body: 'Plus Jakarta Sans', sans-serif;
   --font-mono: 'JetBrains Mono', monospace;
 
-  --color-coral: #FF6B6B;
-  --color-violet: #845EC2;
-  --color-bg-primary: #FFFDF9;
-  --color-bg-secondary: #FFF8F0;
-  --color-bg-dark: #0d1117;
-  --color-bg-dark-lighter: #161b22;
-  --color-text-primary: #2D2D2D;
-  --color-text-muted: #9CA3AF;
-  --color-accent: #5B5EA6;
-  --color-cta: #F59E0B;
-  --color-cta-hover: #D97706;
+  --color-coral: #4A90D9;
+  --color-violet: #7B68EE;
+  --color-bg-primary: #0B0F1F;
+  --color-bg-secondary: #101526;
+  --color-bg-dark: #060910;
+  --color-bg-dark-lighter: #141B2D;
+  --color-text-primary: #E2E8F0;
+  --color-text-muted: #8B95A8;
+  --color-accent: #7B68EE;
+  --color-cta: #7B68EE;
+  --color-cta-hover: #6C5CE7;
   --color-success: #10B981;
-  --color-surface: #FFFFFF;
+  --color-surface: #111827;
 
   --radius-card: 1rem;
   --radius-button: 0.75rem;
@@ -45,8 +45,8 @@
 
   /* Hide default cursor when custom cursor is active (desktop only) */
   @media (hover: hover) and (pointer: fine) {
-    * {
-      cursor: none !important;
+    body {
+      cursor: none;
     }
   }
 }
@@ -67,14 +67,14 @@
 
 /* Floating orbs */
 @keyframes float-slow {
-  0%, 100% { transform: translate(0, 0) scale(1); }
-  33% { transform: translate(30px, -30px) scale(1.05); }
-  66% { transform: translate(-20px, 20px) scale(0.95); }
+  0%, 100% { transform: translate(0, 0); }
+  33% { transform: translate(30px, -30px); }
+  66% { transform: translate(-20px, 20px); }
 }
 @keyframes float-medium {
-  0%, 100% { transform: translate(0, 0) scale(1); }
-  33% { transform: translate(-25px, 25px) scale(1.03); }
-  66% { transform: translate(35px, -15px) scale(0.97); }
+  0%, 100% { transform: translate(0, 0); }
+  33% { transform: translate(-25px, 25px); }
+  66% { transform: translate(35px, -15px); }
 }
 .animate-float-slow {
   animation: float-slow 15s ease-in-out infinite;
@@ -85,7 +85,7 @@
 
 /* Gradient text */
 .gradient-text {
-  background: linear-gradient(135deg, #FF6B6B, #845EC2, #FF6B6B);
+  background: linear-gradient(135deg, #4A90D9, #7B68EE, #4A90D9);
   background-size: 200% auto;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -108,8 +108,8 @@
 
 /* Glow pulse */
 @keyframes glow-pulse {
-  0%, 100% { box-shadow: 0 0 20px rgba(255, 107, 107, 0.3), 0 0 60px rgba(132, 94, 194, 0.1); }
-  50% { box-shadow: 0 0 40px rgba(255, 107, 107, 0.5), 0 0 100px rgba(132, 94, 194, 0.2); }
+  0%, 100% { box-shadow: 0 0 20px rgba(74, 144, 217, 0.3), 0 0 60px rgba(123, 104, 238, 0.1); }
+  50% { box-shadow: 0 0 40px rgba(74, 144, 217, 0.5), 0 0 100px rgba(123, 104, 238, 0.2); }
 }
 .animate-glow-pulse {
   animation: glow-pulse 3s ease-in-out infinite;
@@ -127,7 +127,7 @@
   inset: 0;
   padding: 2px;
   border-radius: inherit;
-  background: conic-gradient(from var(--angle, 0deg), #FF6B6B, #845EC2, #F59E0B, #845EC2, #FF6B6B);
+  background: conic-gradient(from var(--angle, 0deg), #4A90D9, #7B68EE, #9B59B6, #7B68EE, #4A90D9);
   mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
   mask-composite: exclude;
   -webkit-mask-composite: xor;
@@ -150,9 +150,9 @@
 .animate-shimmer {
   background: linear-gradient(
     90deg,
-    rgba(255, 107, 107, 0) 0%,
-    rgba(255, 107, 107, 0.08) 50%,
-    rgba(255, 107, 107, 0) 100%
+    rgba(74, 144, 217, 0) 0%,
+    rgba(74, 144, 217, 0.08) 50%,
+    rgba(74, 144, 217, 0) 100%
   );
   background-size: 200% 100%;
   animation: shimmer 3s ease-in-out infinite;
@@ -160,17 +160,17 @@
 
 /* CSS dot grid (zero JS overhead) */
 .dot-grid-bg {
-  background-image: radial-gradient(circle, rgba(132, 94, 194, 0.12) 1px, transparent 1px);
+  background-image: radial-gradient(circle, rgba(123, 104, 238, 0.15) 1px, transparent 1px);
   background-size: 28px 28px;
 }
 .dot-grid-bg-light {
-  background-image: radial-gradient(circle, rgba(156, 163, 175, 0.12) 1px, transparent 1px);
+  background-image: radial-gradient(circle, rgba(156, 163, 175, 0.08) 1px, transparent 1px);
   background-size: 28px 28px;
 }
 
-/* Section dark theme */
+/* Section elevated dark theme (deeper shade for contrast against dark base) */
 .section-dark {
-  background: linear-gradient(135deg, #0d1117 0%, #161b22 50%, #0d1117 100%);
+  background: linear-gradient(135deg, #060910 0%, #0D1220 50%, #060910 100%);
   color: white;
 }
 
@@ -193,12 +193,12 @@
   width: 8px;
 }
 ::-webkit-scrollbar-track {
-  background: var(--color-bg-primary);
+  background: #060910;
 }
 ::-webkit-scrollbar-thumb {
-  background: linear-gradient(to bottom, #FF6B6B, #845EC2);
+  background: linear-gradient(to bottom, #4A90D9, #7B68EE);
   border-radius: 4px;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: linear-gradient(to bottom, #ff5252, #7048b5);
+  background: linear-gradient(to bottom, #3A7BC8, #6C5CE7);
 }
