@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useRef } from 'react'
 
 const codeLines = [
   { text: 'from', type: 'keyword' },
@@ -32,23 +32,32 @@ const codeLines = [
 
 export default function TerminalMockup() {
   const [visibleChars, setVisibleChars] = useState(0)
-  const [started, setStarted] = useState(false)
+  const [inView, setInView] = useState(false)
+  const containerRef = useRef<HTMLDivElement>(null)
 
   const totalChars = codeLines.reduce((acc, line) => acc + line.text.length, 0)
 
+  // Start typing only when the terminal enters the viewport
   useEffect(() => {
-    // Start typing after a delay
-    const startTimeout = setTimeout(() => setStarted(true), 800)
-    return () => clearTimeout(startTimeout)
+    const el = containerRef.current
+    if (!el) return
+    const observer = new IntersectionObserver(([entry]) => {
+      if (entry.isIntersecting) {
+        setInView(true)
+        observer.disconnect()
+      }
+    }, { threshold: 0.3 })
+    observer.observe(el)
+    return () => observer.disconnect()
   }, [])
 
   useEffect(() => {
-    if (!started || visibleChars >= totalChars) return
+    if (!inView || visibleChars >= totalChars) return
     const timeout = setTimeout(() => {
       setVisibleChars(v => v + 1)
     }, 20)
     return () => clearTimeout(timeout)
-  }, [visibleChars, totalChars, started])
+  }, [visibleChars, totalChars, inView])
 
   // Build visible text
   let charCount = 0
@@ -76,7 +85,7 @@ export default function TerminalMockup() {
   })
 
   return (
-    <div className="relative max-w-lg mx-auto overflow-hidden">
+    <div ref={containerRef} className="relative max-w-lg mx-auto overflow-hidden">
       {/* Glow effect behind terminal */}
       <div className="absolute inset-0 bg-gradient-to-r from-coral/20 via-violet/20 to-coral/20 rounded-2xl blur-xl opacity-60" />
 

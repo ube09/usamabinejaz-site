@@ -9,9 +9,17 @@ export default function CustomCursor() {
   const visible = useRef(false)
   const hovering = useRef(false)
   const rafRef = useRef<number>(0)
+  const idleTimer = useRef<ReturnType<typeof setTimeout> | null>(null)
+  const running = useRef(false)
 
   useEffect(() => {
     if ('ontouchstart' in window) return
+
+    const startLoop = () => {
+      if (running.current) return
+      running.current = true
+      rafRef.current = requestAnimationFrame(animate)
+    }
 
     const handleMove = (e: MouseEvent) => {
       pos.current = { x: e.clientX, y: e.clientY }
@@ -20,6 +28,11 @@ export default function CustomCursor() {
         if (dotRef.current) dotRef.current.style.opacity = '1'
         if (ringRef.current) ringRef.current.style.opacity = '1'
       }
+      startLoop()
+      if (idleTimer.current) clearTimeout(idleTimer.current)
+      idleTimer.current = setTimeout(() => {
+        running.current = false
+      }, 150)
     }
 
     const handleEnter = (e: MouseEvent) => {
@@ -48,10 +61,13 @@ export default function CustomCursor() {
     document.addEventListener('mouseleave', handleOut)
 
     const animate = () => {
-      // Dot follows tightly
+      if (!running.current) {
+        rafRef.current = 0
+        return
+      }
+
       dotPos.current.x += (pos.current.x - dotPos.current.x) * 0.35
       dotPos.current.y += (pos.current.y - dotPos.current.y) * 0.35
-      // Ring trails behind with lag
       ringPos.current.x += (pos.current.x - ringPos.current.x) * 0.12
       ringPos.current.y += (pos.current.y - ringPos.current.y) * 0.12
 
@@ -59,16 +75,13 @@ export default function CustomCursor() {
         dotRef.current.style.transform = `translate(${dotPos.current.x - 3}px, ${dotPos.current.y - 3}px)`
       }
       if (ringRef.current) {
-        const size = hovering.current ? 44 : 28
-        const offset = size / 2
-        ringRef.current.style.width = `${size}px`
-        ringRef.current.style.height = `${size}px`
-        ringRef.current.style.transform = `translate(${ringPos.current.x - offset}px, ${ringPos.current.y - offset}px)`
+        const scale = hovering.current ? 1.57 : 1
+        ringRef.current.style.transform = `translate(${ringPos.current.x - 14}px, ${ringPos.current.y - 14}px) scale(${scale})`
       }
 
       rafRef.current = requestAnimationFrame(animate)
     }
-    animate()
+    startLoop()
 
     return () => {
       window.removeEventListener('mousemove', handleMove)
@@ -76,6 +89,7 @@ export default function CustomCursor() {
       document.removeEventListener('mouseout', handleLeave)
       document.removeEventListener('mouseleave', handleOut)
       cancelAnimationFrame(rafRef.current)
+      if (idleTimer.current) clearTimeout(idleTimer.current)
     }
   }, [])
 
@@ -91,11 +105,11 @@ export default function CustomCursor() {
       >
         <div className="w-1.5 h-1.5 rounded-full bg-coral" />
       </div>
-      {/* Trailing ring */}
+      {/* Trailing ring — scale transform instead of width/height, no mix-blend-difference */}
       <div
         ref={ringRef}
-        className="fixed top-0 left-0 pointer-events-none z-[9998] opacity-0 will-change-transform rounded-full border border-coral/40 mix-blend-difference"
-        style={{ transition: 'opacity 0.3s, width 0.2s ease-out, height 0.2s ease-out' }}
+        className="fixed top-0 left-0 pointer-events-none z-[9998] opacity-0 will-change-transform rounded-full border border-coral/40 w-7 h-7"
+        style={{ transition: 'opacity 0.3s, transform 0.2s ease-out' }}
       />
     </>
   )

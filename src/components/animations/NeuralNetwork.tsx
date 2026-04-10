@@ -12,6 +12,8 @@ export default function NeuralNetwork() {
   const canvasRef = useRef<HTMLCanvasElement>(null)
   const mouseRef = useRef({ x: -1000, y: -1000 })
   const animationRef = useRef<number>(0)
+  const visibleRef = useRef(true)
+  const rectRef = useRef<DOMRect | null>(null)
 
   useEffect(() => {
     const canvas = canvasRef.current
@@ -29,6 +31,7 @@ export default function NeuralNetwork() {
       canvas.width = w * dpr
       canvas.height = h * dpr
       ctx.setTransform(dpr, 0, 0, dpr, 0, 0)
+      rectRef.current = canvas.getBoundingClientRect()
     }
     resize()
     window.addEventListener('resize', resize)
@@ -47,7 +50,8 @@ export default function NeuralNetwork() {
     }
 
     const handleMouse = (e: MouseEvent) => {
-      const rect = canvas.getBoundingClientRect()
+      const rect = rectRef.current
+      if (!rect) return
       mouseRef.current = { x: e.clientX - rect.left, y: e.clientY - rect.top }
     }
     const handleMouseLeave = () => {
@@ -56,22 +60,38 @@ export default function NeuralNetwork() {
     canvas.addEventListener('mousemove', handleMouse)
     canvas.addEventListener('mouseleave', handleMouseLeave)
 
+    // Pause when off-screen
+    const observer = new IntersectionObserver(([entry]) => {
+      visibleRef.current = entry.isIntersecting
+      if (entry.isIntersecting && !animationRef.current) {
+        animationRef.current = requestAnimationFrame(animate)
+      }
+    }, { threshold: 0 })
+    observer.observe(canvas)
+
     const connectionDist = 140
     const connectionDistSq = connectionDist * connectionDist
     const mouseRadius = 200
+    const mouseRadiusSq = mouseRadius * mouseRadius
 
     const animate = () => {
+      if (!visibleRef.current) {
+        animationRef.current = 0
+        return
+      }
+
       ctx.clearRect(0, 0, w, h)
 
       const mx = mouseRef.current.x
       const my = mouseRef.current.y
 
-      // Update nodes
+      // Update nodes — use squared distance to avoid Math.sqrt
       for (const node of nodes) {
         const dx = mx - node.x
         const dy = my - node.y
-        const dist = Math.sqrt(dx * dx + dy * dy)
-        if (dist < mouseRadius && dist > 0) {
+        const distSq = dx * dx + dy * dy
+        if (distSq < mouseRadiusSq && distSq > 0) {
+          const dist = Math.sqrt(distSq)
           const force = (1 - dist / mouseRadius) * 0.04
           node.vx += (dx / dist) * force
           node.vy += (dy / dist) * force
@@ -89,7 +109,7 @@ export default function NeuralNetwork() {
       }
 
       // Batch draw connections (single color, no per-line gradients)
-      ctx.strokeStyle = 'rgba(132, 94, 194, 0.2)'
+      ctx.strokeStyle = 'rgba(123, 104, 238, 0.35)'
       ctx.lineWidth = 0.6
       ctx.beginPath()
       for (let i = 0; i < nodes.length; i++) {
@@ -105,17 +125,19 @@ export default function NeuralNetwork() {
       }
       ctx.stroke()
 
-      // Draw brighter connections near mouse
+      // Draw brighter connections near mouse — use squared distance
       if (mx > 0 && my > 0) {
-        ctx.strokeStyle = 'rgba(255, 107, 107, 0.25)'
-        ctx.lineWidth = 0.8
+        ctx.strokeStyle = 'rgba(74, 144, 217, 0.4)'
+        ctx.lineWidth = 1
         ctx.beginPath()
         for (let i = 0; i < nodes.length; i++) {
-          const distI = Math.sqrt((mx - nodes[i].x) ** 2 + (my - nodes[i].y) ** 2)
-          if (distI > mouseRadius) continue
+          const dxi = mx - nodes[i].x
+          const dyi = my - nodes[i].y
+          if (dxi * dxi + dyi * dyi > mouseRadiusSq) continue
           for (let j = i + 1; j < nodes.length; j++) {
-            const distJ = Math.sqrt((mx - nodes[j].x) ** 2 + (my - nodes[j].y) ** 2)
-            if (distJ > mouseRadius) continue
+            const dxj = mx - nodes[j].x
+            const dyj = my - nodes[j].y
+            if (dxj * dxj + dyj * dyj > mouseRadiusSq) continue
             const dx = nodes[i].x - nodes[j].x
             const dy = nodes[i].y - nodes[j].y
             if (dx * dx + dy * dy < connectionDistSq) {
@@ -127,14 +149,34 @@ export default function NeuralNetwork() {
         ctx.stroke()
       }
 
-      // Draw nodes (simple dots, no radialGradient)
+      // Batch draw nodes — 2 fill calls instead of N
+      const nearNodes: Node[] = []
+      const farNodes: Node[] = []
       for (const node of nodes) {
-        const nearMouse = mx > 0 && Math.sqrt((mx - node.x) ** 2 + (my - node.y) ** 2) < mouseRadius
-        ctx.beginPath()
-        ctx.arc(node.x, node.y, node.radius, 0, Math.PI * 2)
-        ctx.fillStyle = nearMouse ? 'rgba(255, 107, 107, 0.8)' : 'rgba(132, 94, 194, 0.5)'
-        ctx.fill()
+        const dx = mx - node.x
+        const dy = my - node.y
+        if (mx > 0 && dx * dx + dy * dy < mouseRadiusSq) {
+          nearNodes.push(node)
+        } else {
+          farNodes.push(node)
+        }
       }
+
+      ctx.fillStyle = 'rgba(123, 104, 238, 0.7)'
+      ctx.beginPath()
+      for (const node of farNodes) {
+        ctx.moveTo(node.x + node.radius, node.y)
+        ctx.arc(node.x, node.y, node.radius, 0, Math.PI * 2)
+      }
+      ctx.fill()
+
+      ctx.fillStyle = 'rgba(74, 144, 217, 0.9)'
+      ctx.beginPath()
+      for (const node of nearNodes) {
+        ctx.moveTo(node.x + node.radius, node.y)
+        ctx.arc(node.x, node.y, node.radius, 0, Math.PI * 2)
+      }
+      ctx.fill()
 
       animationRef.current = requestAnimationFrame(animate)
     }
@@ -144,6 +186,7 @@ export default function NeuralNetwork() {
       window.removeEventListener('resize', resize)
       canvas.removeEventListener('mousemove', handleMouse)
       canvas.removeEventListener('mouseleave', handleMouseLeave)
+      observer.disconnect()
       cancelAnimationFrame(animationRef.current)
     }
   }, [])

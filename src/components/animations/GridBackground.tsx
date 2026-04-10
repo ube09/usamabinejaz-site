@@ -8,13 +8,14 @@ interface GridBackgroundProps {
 
 export default function GridBackground({
   className = '',
-  dotColor = 'rgba(156, 163, 175, 0.15)',
-  activeColor = 'rgba(132, 94, 194, 0.4)',
+  dotColor = 'rgba(156, 163, 175, 0.12)',
+  activeColor = 'rgba(123, 104, 238, 0.5)',
 }: GridBackgroundProps) {
   const canvasRef = useRef<HTMLCanvasElement>(null)
   const mouseRef = useRef({ x: -1000, y: -1000 })
   const rafRef = useRef<number>(0)
   const visibleRef = useRef(true)
+  const rectRef = useRef<DOMRect | null>(null)
 
   useEffect(() => {
     const canvas = canvasRef.current
@@ -35,12 +36,14 @@ export default function GridBackground({
       canvas.width = w * dpr
       canvas.height = h * dpr
       ctx.setTransform(dpr, 0, 0, dpr, 0, 0)
+      rectRef.current = canvas.getBoundingClientRect()
     }
     resize()
     window.addEventListener('resize', resize)
 
     const handleMouse = (e: MouseEvent) => {
-      const rect = canvas.getBoundingClientRect()
+      const rect = rectRef.current
+      if (!rect) return
       mouseRef.current = { x: e.clientX - rect.left, y: e.clientY - rect.top }
     }
     const handleMouseLeave = () => {
@@ -49,15 +52,18 @@ export default function GridBackground({
     canvas.addEventListener('mousemove', handleMouse)
     canvas.addEventListener('mouseleave', handleMouseLeave)
 
-    // Pause when off-screen
+    // Fully stop rAF when off-screen, restart when visible
     const observer = new IntersectionObserver(([entry]) => {
       visibleRef.current = entry.isIntersecting
+      if (entry.isIntersecting && !rafRef.current) {
+        rafRef.current = requestAnimationFrame(draw)
+      }
     }, { threshold: 0 })
     observer.observe(canvas)
 
     const draw = () => {
       if (!visibleRef.current) {
-        rafRef.current = requestAnimationFrame(draw)
+        rafRef.current = 0
         return
       }
 
@@ -72,7 +78,7 @@ export default function GridBackground({
         for (let y = gap; y < h; y += gap) {
           const dx = mx - x
           const dy = my - y
-          if (dx * dx + dy * dy < radiusSq) continue // skip active ones
+          if (dx * dx + dy * dy < radiusSq) continue
           ctx.moveTo(x + 1, y)
           ctx.arc(x, y, 1, 0, Math.PI * 2)
         }
@@ -83,7 +89,6 @@ export default function GridBackground({
       if (mx > -500 && my > -500) {
         ctx.fillStyle = activeColor
         ctx.beginPath()
-        // Only check dots in mouse vicinity
         const startX = Math.max(gap, Math.floor((mx - radius) / gap) * gap)
         const endX = Math.min(w, mx + radius + gap)
         const startY = Math.max(gap, Math.floor((my - radius) / gap) * gap)

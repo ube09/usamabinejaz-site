@@ -1,4 +1,4 @@
-import { useRef, useState } from 'react'
+import { useRef, useCallback } from 'react'
 import { cn } from '@/lib/utils'
 
 interface SpotlightCardProps {
@@ -9,29 +9,36 @@ interface SpotlightCardProps {
 
 export default function SpotlightCard({ children, className = '', spotlightColor = 'rgba(255, 255, 255, 0.25)' }: SpotlightCardProps) {
   const divRef = useRef<HTMLDivElement>(null)
-  const [position, setPosition] = useState({ x: 0, y: 0 })
-  const [opacity, setOpacity] = useState(0)
+  const overlayRef = useRef<HTMLDivElement>(null)
 
-  const handleMouseMove: React.MouseEventHandler<HTMLDivElement> = (e) => {
-    if (!divRef.current) return
+  const handleMouseMove = useCallback((e: React.MouseEvent<HTMLDivElement>) => {
+    if (!divRef.current || !overlayRef.current) return
     const rect = divRef.current.getBoundingClientRect()
-    setPosition({ x: e.clientX - rect.left, y: e.clientY - rect.top })
-  }
+    const x = e.clientX - rect.left
+    const y = e.clientY - rect.top
+    overlayRef.current.style.background = `radial-gradient(circle at ${x}px ${y}px, ${spotlightColor}, transparent 80%)`
+  }, [spotlightColor])
+
+  const handleMouseEnter = useCallback(() => {
+    if (overlayRef.current) overlayRef.current.style.opacity = '0.6'
+  }, [])
+
+  const handleMouseLeave = useCallback(() => {
+    if (overlayRef.current) overlayRef.current.style.opacity = '0'
+  }, [])
 
   return (
     <div
       ref={divRef}
       onMouseMove={handleMouseMove}
-      onMouseEnter={() => setOpacity(0.6)}
-      onMouseLeave={() => setOpacity(0)}
-      className={cn('relative rounded-[var(--radius-card)] border border-gray-100 bg-surface overflow-hidden p-6', className)}
+      onMouseEnter={handleMouseEnter}
+      onMouseLeave={handleMouseLeave}
+      className={cn('relative rounded-[var(--radius-card)] border border-white/10 bg-surface overflow-hidden p-6', className)}
     >
       <div
+        ref={overlayRef}
         className="pointer-events-none absolute inset-0 transition-opacity duration-500"
-        style={{
-          opacity,
-          background: `radial-gradient(circle at ${position.x}px ${position.y}px, ${spotlightColor}, transparent 80%)`,
-        }}
+        style={{ opacity: 0 }}
       />
       {children}
     </div>

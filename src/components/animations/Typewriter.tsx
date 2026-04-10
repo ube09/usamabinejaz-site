@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useRef } from 'react'
 
 interface TypewriterProps {
   words: string[]
@@ -18,8 +18,23 @@ export default function Typewriter({
   const [index, setIndex] = useState(0)
   const [text, setText] = useState('')
   const [isDeleting, setIsDeleting] = useState(false)
+  const [inView, setInView] = useState(true)
+  const spanRef = useRef<HTMLSpanElement>(null)
+
+  // Pause cycling when off-screen
+  useEffect(() => {
+    const el = spanRef.current
+    if (!el) return
+    const observer = new IntersectionObserver(([entry]) => {
+      setInView(entry.isIntersecting)
+    }, { threshold: 0 })
+    observer.observe(el)
+    return () => observer.disconnect()
+  }, [])
 
   useEffect(() => {
+    if (!inView) return
+
     const currentWord = words[index]
 
     if (!isDeleting && text === currentWord) {
@@ -42,10 +57,10 @@ export default function Typewriter({
     }, isDeleting ? deleteSpeed : speed)
 
     return () => clearTimeout(timeout)
-  }, [text, isDeleting, index, words, speed, deleteSpeed, pauseDuration])
+  }, [text, isDeleting, index, words, speed, deleteSpeed, pauseDuration, inView])
 
   return (
-    <span className={className}>
+    <span ref={spanRef} className={className}>
       {text}
       <span className="animate-blink text-coral">|</span>
     </span>
