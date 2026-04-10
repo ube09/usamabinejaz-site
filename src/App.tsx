@@ -8,6 +8,10 @@ import Services from './pages/Services'
 import Work from './pages/Work'
 import About from './pages/About'
 import Contact from './pages/Contact'
+import NeuroMailPrivacy from './pages/legal/NeuroMailPrivacy'
+import NeuroMailTerms from './pages/legal/NeuroMailTerms'
+import NexusPrivacy from './pages/legal/NexusPrivacy'
+import NexusTerms from './pages/legal/NexusTerms'
 import ScrollToTop from './components/layout/ScrollToTop'
 import CustomCursor from './components/animations/CustomCursor'
 import PageTransition from './components/animations/PageTransition'
@@ -29,6 +33,10 @@ export default function App() {
             <Route path="/work" element={<PageTransition><Work /></PageTransition>} />
             <Route path="/about" element={<PageTransition><About /></PageTransition>} />
             <Route path="/contact" element={<PageTransition><Contact /></PageTransition>} />
+            <Route path="/neuromail/privacy" element={<PageTransition><NeuroMailPrivacy /></PageTransition>} />
+            <Route path="/neuromail/terms" element={<PageTransition><NeuroMailTerms /></PageTransition>} />
+            <Route path="/nexus/privacy" element={<PageTransition><NexusPrivacy /></PageTransition>} />
+            <Route path="/nexus/terms" element={<PageTransition><NexusTerms /></PageTransition>} />
           </Routes>
         </AnimatePresence>
       </main>

@@ -84,20 +84,20 @@ export default function Products() {
         </Container>
       </section>
 
-      {/* Nexus */}
+      {/* Nexus Web And Mobile App */}
       <section id="nexus" className="py-24 scroll-mt-24 relative overflow-hidden">
         <GridBackground dotColor="rgba(132, 94, 194, 0.1)" activeColor="rgba(132, 94, 194, 0.4)" />
         <Container className="relative z-10">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <ScrollReveal delay={0.2} className="order-2 lg:order-1">
               <div className="rounded-[var(--radius-card)] overflow-hidden shadow-lg border border-white/10">
-                <img src="/images/nexus/nexus-dashboard-dark.webp" alt="Nexus Dashboard" className="w-full" loading="lazy" />
+                <img src="/images/nexus/nexus-dashboard-dark.webp" alt="Nexus Web And Mobile App Dashboard" className="w-full" loading="lazy" />
               </div>
             </ScrollReveal>
             <ScrollReveal className="order-1 lg:order-2">
               <div>
                 <Badge className="mb-4 bg-violet/10 text-violet">Web + Mobile</Badge>
-                <h2 className="text-3xl md:text-4xl font-bold">Nexus</h2>
+                <h2 className="text-3xl md:text-4xl font-bold">Nexus Web And Mobile App</h2>
                 <p className="text-text-muted text-lg mt-2">Cross-platform team collaboration suite</p>
                 <p className="text-text-primary mt-4 leading-relaxed">
                   A unified platform for task management, team chat, email integration, and project analytics. Built as a monorepo with Next.js (web) and React Native/Expo (mobile). Features JWT auth, RBAC, real-time messaging, push notifications, and role-based dashboards.

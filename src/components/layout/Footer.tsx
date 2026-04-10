@@ -38,7 +38,7 @@ export default function Footer() {
   return (
     <footer className="bg-bg-dark text-white py-16 border-t border-white/5">
       <Container>
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-12">
           <div>
             <div className="flex items-center gap-1 text-xl font-bold mb-3">
               <span className="text-coral">UBE</span>
@@ -56,6 +56,16 @@ export default function Footer() {
                   {link.label}
                 </Link>
               ))}
+            </div>
+          </div>
+
+          <div>
+            <h4 className="font-semibold text-sm uppercase tracking-wider text-gray-400 mb-4">Legal</h4>
+            <div className="flex flex-col gap-2">
+              <Link to="/neuromail/privacy" className="text-gray-300 hover:text-white text-sm transition-colors">NeuroMail Privacy</Link>
+              <Link to="/neuromail/terms" className="text-gray-300 hover:text-white text-sm transition-colors">NeuroMail Terms</Link>
+              <Link to="/nexus/privacy" className="text-gray-300 hover:text-white text-sm transition-colors">Nexus Web And Mobile App Privacy</Link>
+              <Link to="/nexus/terms" className="text-gray-300 hover:text-white text-sm transition-colors">Nexus Web And Mobile App Terms</Link>
             </div>
           </div>
 

@@ -31,7 +31,7 @@ const products = [
     link: '/products#neuromail',
   },
   {
-    name: 'Nexus',
+    name: 'Nexus Web And Mobile App',
     tagline: 'Cross-platform team collaboration suite',
     image: '/images/nexus/nexus-dashboard-dark.webp',
     tech: ['Next.js', 'React Native', 'PostgreSQL', 'Socket.io'],
