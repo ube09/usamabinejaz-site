@@ -29,9 +29,8 @@ export default function Navbar() {
       scrolled ? 'bg-bg-primary/90 backdrop-blur-md shadow-lg shadow-black/30 border-b border-white/5' : 'bg-transparent'
     )}>
       <Container className="flex items-center justify-between h-16 md:h-20">
-        <Link to="/" className="flex items-center gap-1 text-xl font-bold text-text-primary">
-          <span className="gradient-text">UBE</span>
-          <span className="font-normal text-text-muted">labs</span>
+        <Link to="/" className="flex items-center -mt-3">
+          <img src="/ube-labs-logo.png" alt="UBE Labs" className="h-22 md:h-26 w-auto" />
         </Link>
 
         <div className="hidden md:flex items-center gap-8">

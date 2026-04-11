@@ -39,13 +39,11 @@ export default function Footer() {
     <footer className="bg-bg-dark text-white py-16 border-t border-white/5">
       <Container>
         <div className="grid grid-cols-1 md:grid-cols-4 gap-12">
-          <div>
-            <div className="flex items-center gap-1 text-xl font-bold mb-3">
-              <span className="text-coral">UBE</span>
-              <span className="font-normal text-gray-400">labs</span>
+          <div className="flex flex-col items-center md:items-start">
+            <div className="mb-0">
+              <img src="/ube-labs-logo-tagline.png" alt="UBE Labs — AI that ships" className="h-48 w-auto" />
             </div>
-            <p className="text-gray-400 text-sm">AI that ships.</p>
-            <p className="text-gray-500 text-xs mt-2">Founded by Usama Bin Ejaz</p>
+            <p className="text-gray-500 text-xs -mt-2 text-center w-full">Founded by Usama Bin Ejaz</p>
           </div>
 
           <div>

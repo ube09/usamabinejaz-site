@@ -18,7 +18,7 @@ import { Link } from 'react-router-dom'
 const stats = [
   { value: 4, suffix: '+', label: 'Years Experience' },
   { value: 5, suffix: '', label: 'Products Shipped' },
-  { value: 4, suffix: '', label: 'Companies Served' },
+  { value: 5, suffix: '', label: 'Companies Served' },
   { value: 15, suffix: '+', label: 'Technologies' },
 ]
 
