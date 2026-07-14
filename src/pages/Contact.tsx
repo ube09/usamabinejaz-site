@@ -37,10 +37,10 @@ export default function Contact() {
     e.preventDefault()
     setStatus('sending')
     try {
-      const res = await fetch('https://formspree.io/f/xzzzvkpb', {
+      const res = await fetch('https://api.web3forms.com/submit', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(form),
+        body: JSON.stringify({ access_key: 'e76d14e0-363b-45e8-8cfd-8cef3a6a2e93', ...form }),
       })
       if (res.ok) {
         setStatus('sent')
