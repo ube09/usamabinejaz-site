@@ -125,7 +125,7 @@ export const projects: PortfolioProject[] = [
     link: { type: 'github', href: 'https://github.com/ube09/Tahr-Guardian' },
     image: '/images/portfolio/tahr-guardian/detections.webp',
     featured: true,
-    client: 'Saudi conservation program',
+    client: 'Gulf-region conservation program',
   },
   {
     id: 'pavescan-ai',
