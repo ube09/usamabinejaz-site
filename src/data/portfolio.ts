@@ -374,7 +374,7 @@ export const projects: PortfolioProject[] = [
       'Role-based workforce portal with four dashboards, IP-validated attendance, timezone-aware night-shift logic, and payroll + HR-document automation.',
     metric: '4 role dashboards · realtime sync',
     tech: ['React 19', 'TypeScript', 'Vite', 'Supabase', 'Tailwind CSS', 'ExcelJS', 'GitHub Actions'],
-    link: { type: 'github', href: 'https://github.com/ube09/BytechSol-Workforce-Portal' },
+    link: { type: 'request' },
   },
   {
     id: 'mockupstudio',
