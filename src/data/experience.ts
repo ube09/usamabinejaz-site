@@ -21,10 +21,11 @@ export const experience: ExperienceEntry[] = [
     dates: 'Jun 2026 — Present',
     role: 'Data Scientist',
     bullets: [
-      'Deliver client AI solutions with a computer-vision focus, from model development through deployment.',
-      'Built a cross-platform mobile app (iOS + Android) with a connected web portal for an AI-powered client solution.',
+      'Built and shipped a location-aware consumer mobile app (5 cities, ~15 screens) to Google Play — iOS in App Store review — with an EAS build + OTA-update release pipeline.',
+      'Shipped a bilingual (EN/AR, RTL) merchant portal and a Supabase/Postgres API layer (~20 endpoints, JWT + Row-Level Security) powering QR redemptions and a tamper-resistant points ledger.',
+      'Integrated three LLM/vision features — a location-aware discovery assistant, poster-photo OCR auto-fill, and an LLM deal-extraction crawler — behind a swappable multi-provider abstraction.',
     ],
-    tech: ['Python', 'Computer Vision', 'Mobile (iOS/Android)', 'Web'],
+    tech: ['React Native', 'Expo', 'Next.js', 'Supabase', 'TypeScript', 'LLM APIs', 'OCR'],
   },
   {
     company: 'UBE Labs',
