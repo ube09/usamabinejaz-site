@@ -82,9 +82,9 @@ export default function ProjectCard({ project, variant = 'default' }: ProjectCar
           ))}
         </div>
 
-        {project.link.type === 'github' ? (
+        {project.link.type === 'github' || project.link.type === 'external' ? (
           <p className="mt-4 inline-flex items-center gap-1.5 text-sm font-semibold" style={{ color: accent }}>
-            GitHub
+            {project.link.type === 'github' ? 'GitHub' : project.link.label ?? 'Visit'}
             <span aria-hidden className="transition-transform duration-200 group-hover:translate-x-0.5">↗</span>
           </p>
         ) : null}
@@ -111,13 +111,13 @@ export default function ProjectCard({ project, variant = 'default' }: ProjectCar
   )
   const interactiveClasses = 'cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-coral/70'
 
-  if (project.link.type === 'github' && project.link.href) {
+  if ((project.link.type === 'github' || project.link.type === 'external') && project.link.href) {
     return (
       <a
         href={project.link.href}
         target="_blank"
         rel="noreferrer"
-        aria-label={`${project.title} — GitHub repository`}
+        aria-label={`${project.title} — ${project.link.type === 'github' ? 'GitHub repository' : project.link.label ?? 'external link'}`}
         className={cn(cardClasses, interactiveClasses)}
       >
         {body}

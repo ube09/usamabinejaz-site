@@ -26,7 +26,7 @@ export interface PortfolioProject {
   description: string
   metric?: string
   tech: string[]
-  link: { type: 'github' | 'case-study' | 'request' | 'none'; href?: string }
+  link: { type: 'github' | 'case-study' | 'request' | 'external' | 'none'; href?: string; label?: string }
   image?: string
   video?: string
   featured?: boolean
@@ -47,7 +47,12 @@ export const projects: PortfolioProject[] = [
       'Location-aware perks platform: a crawler + LLM-extraction pipeline builds a deduplicated, geocoded deals catalogue — surfaced via a location-aware GPT assistant, merchant analytics with a privacy-preserving heatmap, and a 5-city consumer app.',
     metric: 'Live on Google Play · 5 cities',
     tech: ['LLM Extraction', 'OpenAI', 'Supabase', 'Postgres', 'React Native', 'Expo', 'Next.js'],
-    link: { type: 'none' },
+    link: {
+      type: 'external',
+      href: 'https://play.google.com/store/apps/details?id=com.aigenix.perkmap&hl=en',
+      label: 'Google Play',
+    },
+    image: '/images/portfolio/perkmap/cover.webp',
     featured: true,
     year: '2026',
     client: 'AiGenix (employer product)',
