@@ -9,7 +9,7 @@ export const skillGroups: SkillGroup[] = [
     items: [
       'OpenAI (GPT-4o)', 'Gemini', 'Llama 3.2 Vision', 'Mistral 7B', 'LangGraph',
       'LangChain', 'RAG', 'Pinecone', 'FAISS', 'Prompt Engineering',
-      'Multi-Agent Orchestration',
+      'Multi-Agent Orchestration', 'AI-Assisted Engineering (Claude Code, Cursor)',
     ],
   },
   {

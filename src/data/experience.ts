@@ -21,11 +21,12 @@ export const experience: ExperienceEntry[] = [
     dates: 'Jun 2026 — Present',
     role: 'Data Scientist',
     bullets: [
-      'Built and shipped a location-aware consumer mobile app (5 cities, ~15 screens) to Google Play — iOS in App Store review — with an EAS build + OTA-update release pipeline.',
-      'Shipped a bilingual (EN/AR, RTL) merchant portal and a Supabase/Postgres API layer (~20 endpoints, JWT + Row-Level Security) powering QR redemptions and a tamper-resistant points ledger.',
-      'Integrated three LLM/vision features — a location-aware discovery assistant, poster-photo OCR auto-fill, and an LLM deal-extraction crawler — behind a swappable multi-provider abstraction.',
+      'Own the data value chain of PerkMap, a geospatial perks-discovery platform: a crawling + LLM-extraction pipeline converting unstructured promo pages into a deduplicated, geocoded deals catalogue.',
+      'Designed the intelligent features: a location-aware GPT discovery assistant (structured JSON outputs + web search) and multimodal poster-OCR auto-fill, behind a swappable multi-provider LLM abstraction.',
+      'Built merchant analytics: audience dashboards and a privacy-preserving geospatial activity heatmap with consent gating and small-cohort suppression.',
+      'Shipped the delivery surfaces end-to-end: a 5-city consumer app (live on Google Play; iOS in review) and a bilingual (EN/AR) merchant portal on a Supabase/Postgres API with JWT + Row-Level Security.',
     ],
-    tech: ['React Native', 'Expo', 'Next.js', 'Supabase', 'TypeScript', 'LLM APIs', 'OCR'],
+    tech: ['LLM Extraction', 'OpenAI', 'Supabase', 'Postgres', 'React Native', 'Expo', 'Next.js'],
   },
   {
     company: 'UBE Labs',

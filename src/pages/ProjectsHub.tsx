@@ -14,7 +14,7 @@ import { CATEGORY_META, projects } from '@/data/portfolio'
 const stats = [
   { value: projects.length, suffix: '', label: 'Projects' },
   { value: 10, suffix: '+', label: 'Computer Vision Systems' },
-  { value: 3, suffix: '', label: 'LLM Systems in Production' },
+  { value: 4, suffix: '', label: 'LLM Systems in Production' },
   { value: Object.keys(CATEGORY_META).length, suffix: '', label: 'Domains' },
 ]
 
@@ -29,7 +29,7 @@ function Kicker({ children }: { children: React.ReactNode }) {
 export default function ProjectsHub() {
   usePageMeta(
     'Projects',
-    '21 real AI/ML builds — GenAI and LLM systems, computer vision pipelines, ML, data engineering, and full-stack — with honest metrics and code links.'
+    '22 real AI/ML builds — GenAI and LLM systems, computer vision pipelines, ML, data engineering, and full-stack — with honest metrics and code links.'
   )
 
   const [activeFilter, setActiveFilter] = useState<ProjectFilter>('all')

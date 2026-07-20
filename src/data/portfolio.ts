@@ -38,6 +38,21 @@ export interface PortfolioProject {
 export const projects: PortfolioProject[] = [
   // ── GenAI / LLM ────────────────────────────────────────────────
   {
+    id: 'perkmap',
+    title: 'PerkMap — Card-Perks Discovery Platform',
+    kicker: 'Geospatial Data Product',
+    category: 'datasci',
+    secondary: ['genai', 'dataeng', 'fullstack'],
+    description:
+      'Location-aware perks platform: a crawler + LLM-extraction pipeline builds a deduplicated, geocoded deals catalogue — surfaced via a location-aware GPT assistant, merchant analytics with a privacy-preserving heatmap, and a 5-city consumer app.',
+    metric: 'Live on Google Play · 5 cities',
+    tech: ['LLM Extraction', 'OpenAI', 'Supabase', 'Postgres', 'React Native', 'Expo', 'Next.js'],
+    link: { type: 'none' },
+    featured: true,
+    year: '2026',
+    client: 'AiGenix (employer product)',
+  },
+  {
     id: 'neuromail',
     title: 'NeuroMail V3 — AI Email Command Center',
     kicker: 'Email Intelligence',
