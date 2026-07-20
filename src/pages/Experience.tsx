@@ -10,7 +10,7 @@ import { GraduationCap } from 'lucide-react'
 export default function Experience() {
   usePageMeta(
     'Experience',
-    'Work experience of Usama Bin Ejaz — Founder at UBE Labs, Lead Data Scientist at Dellsons Associates, AI/ML Engineer at Zapdas Technologies, TDK Electronics, and Swvl.'
+    'Work experience of Usama Bin Ejaz — Data Scientist at AiGenix, Founder at UBE Labs, freelance AI/ML engineer, and prior roles at Dellsons Associates, Zapdas Technologies, TDK Electronics, and Swvl.'
   )
 
   return (

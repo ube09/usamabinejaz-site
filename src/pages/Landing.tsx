@@ -22,7 +22,7 @@ const stats = [
   { value: 2, suffix: '', label: 'Products in Production' },
 ]
 
-const currentJob = experience.find(e => e.company === 'Dellsons Associates') ?? experience[0]
+const currentJob = experience.find(e => e.company === 'AiGenix') ?? experience[0]
 const msDegree = education[0]
 
 const snapshotFacts = [
@@ -175,10 +175,11 @@ export default function Landing() {
                   The best way to prove you can build is to actually build.
                 </blockquote>
                 <p className="mt-6 leading-relaxed text-gray-400">
-                  Today I lead data-science delivery at{' '}
-                  <strong className="font-semibold text-gray-200">Dellsons Associates</strong>. In 2026,
-                  I founded <strong className="gradient-text">UBE Labs</strong> — the independent lab
-                  where I ship my own products, NeuroMail and Nexus.
+                  Today I build client AI solutions as a Data Scientist at{' '}
+                  <strong className="font-semibold text-gray-200">AiGenix</strong>, alongside a
+                  freelance computer-vision and LLM practice. In 2026, I founded{' '}
+                  <strong className="gradient-text">UBE Labs</strong> — the independent lab where I
+                  ship my own products, NeuroMail and Nexus.
                 </p>
               </ScrollReveal>
             </div>

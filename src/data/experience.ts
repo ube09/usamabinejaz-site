@@ -16,6 +16,17 @@ export interface EducationEntry {
 
 export const experience: ExperienceEntry[] = [
   {
+    company: 'AiGenix',
+    location: 'Karachi, Pakistan',
+    dates: 'Jun 2026 — Present',
+    role: 'Data Scientist',
+    bullets: [
+      'Deliver client AI solutions with a computer-vision focus, from model development through deployment.',
+      'Built a cross-platform mobile app (iOS + Android) with a connected web portal for an AI-powered client solution.',
+    ],
+    tech: ['Python', 'Computer Vision', 'Mobile (iOS/Android)', 'Web'],
+  },
+  {
     company: 'UBE Labs',
     location: 'Karachi, Pakistan',
     dates: '2026 — Present',
@@ -28,12 +39,23 @@ export const experience: ExperienceEntry[] = [
     tech: ['Electron', 'FastAPI', 'LangGraph', 'Mistral 7B', 'Next.js', 'React Native', 'PostgreSQL'],
   },
   {
+    company: 'Freelance',
+    location: 'Remote',
+    dates: '2022 — Present',
+    role: 'AI/ML Engineer — independent & collaborative client projects',
+    bullets: [
+      'Deliver computer-vision and LLM systems for international clients across conservation, infrastructure, logistics, and healthcare.',
+      'Highlights: endangered-species detection (~97% mAP@50), geospatial road-damage detection for a Dutch municipal road authority, license-plate access control for an Amsterdam logistics warehouse, and a biomarker lab-report insights API.',
+    ],
+    tech: ['YOLO', 'OpenCV', 'PyTorch', 'FastAPI', 'OpenAI', 'Streamlit'],
+  },
+  {
     company: 'Dellsons Associates',
     location: 'Karachi, Pakistan',
-    dates: 'Oct 2025 — Present',
-    role: 'Data Scientist (Lead)',
+    dates: 'Oct 2025 — Apr 2026',
+    role: 'Data Scientist',
     bullets: [
-      'Led AI/ML and data-science delivery of 4 production systems across enterprise products.',
+      'Led AI/ML delivery on a compressed product roadmap — shipped 4 production systems in 7 months across enterprise products.',
       'Built NeuroMail V3, an AI email command center with LangGraph multi-agent orchestration and local Mistral 7B summarization, reducing manual email-processing time ~60% for a 50-person org.',
       'Architected a cross-platform team-collaboration suite (web + mobile) with real-time chat, RBAC, and push notifications, consolidating 3 tools into one for 30+ daily active users.',
       'Built a RAG document Q&A system with Pinecone vector search and source attribution across 10K+ documents, cutting research time from hours to minutes.',
