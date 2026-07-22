@@ -178,7 +178,7 @@ export default function Landing() {
                   Today I build client AI solutions as a Data Scientist at{' '}
                   <strong className="font-semibold text-gray-200">AiGenix</strong>, alongside a
                   freelance computer-vision and LLM practice. In 2026, I founded{' '}
-                  <strong className="gradient-text">UBE Labs</strong> — the independent lab where I
+                  <strong className="gradient-text">UBE Labs</strong>, the independent lab where I
                   ship my own products, NeuroMail and Nexus.
                 </p>
               </ScrollReveal>

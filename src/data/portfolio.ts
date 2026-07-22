@@ -44,8 +44,8 @@ export const projects: PortfolioProject[] = [
     category: 'datasci',
     secondary: ['genai', 'dataeng', 'fullstack'],
     description:
-      'Location-aware perks platform: a crawler + LLM-extraction pipeline builds a deduplicated, geocoded deals catalogue — surfaced via a location-aware GPT assistant, merchant analytics with a privacy-preserving heatmap, and a 5-city consumer app.',
-    metric: 'Live on Google Play · 5 cities',
+      'Location-aware perks platform: a crawler + LLM-extraction pipeline builds a deduplicated, geocoded deals catalogue, surfaced via a location-aware GPT assistant, merchant analytics with a privacy-preserving heatmap, and a 5-city consumer app.',
+    metric: 'Live on iOS & Android · 5 cities',
     tech: ['LLM Extraction', 'OpenAI', 'Supabase', 'Postgres', 'React Native', 'Expo', 'Next.js'],
     link: {
       type: 'external',

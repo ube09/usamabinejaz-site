@@ -24,7 +24,7 @@ export const experience: ExperienceEntry[] = [
       'Own the data value chain of PerkMap, a geospatial perks-discovery platform: a crawling + LLM-extraction pipeline converting unstructured promo pages into a deduplicated, geocoded deals catalogue.',
       'Designed the intelligent features: a location-aware GPT discovery assistant (structured JSON outputs + web search) and multimodal poster-OCR auto-fill, behind a swappable multi-provider LLM abstraction.',
       'Built merchant analytics: audience dashboards and a privacy-preserving geospatial activity heatmap with consent gating and small-cohort suppression.',
-      'Shipped the delivery surfaces end-to-end: a 5-city consumer app (live on Google Play; iOS in review) and a bilingual (EN/AR) merchant portal on a Supabase/Postgres API with JWT + Row-Level Security.',
+      'Shipped the delivery surfaces end to end: a 5-city consumer app, live on Google Play and the App Store, and a bilingual (EN/AR) merchant portal on a Supabase/Postgres API with JWT + Row-Level Security.',
     ],
     tech: ['LLM Extraction', 'OpenAI', 'Supabase', 'Postgres', 'React Native', 'Expo', 'Next.js'],
   },
@@ -34,7 +34,7 @@ export const experience: ExperienceEntry[] = [
     dates: '2026 — Present',
     role: 'Founder',
     bullets: [
-      'Independent AI lab — "AI that ships." Product design, engineering, and deployment end-to-end.',
+      'Independent AI lab. "AI that ships": product design, engineering, and deployment end to end.',
       'Shipped NeuroMail, an AI email command center with LangGraph multi-agent triage, drafting, and local Mistral 7B summarization.',
       'Shipped Nexus, a cross-platform team-collaboration suite (web + mobile) with real-time chat, RBAC, and push notifications.',
     ],
@@ -44,7 +44,7 @@ export const experience: ExperienceEntry[] = [
     company: 'Freelance',
     location: 'Remote',
     dates: '2022 — Present',
-    role: 'AI/ML Engineer — independent & collaborative client projects',
+    role: 'AI/ML Engineer · independent & collaborative client projects',
     bullets: [
       'Deliver computer-vision and LLM systems for international clients across conservation, infrastructure, logistics, and healthcare.',
       'Highlights: endangered-species detection (~97% mAP@50), geospatial road-damage detection for a Dutch municipal road authority, license-plate access control for an Amsterdam logistics warehouse, and a biomarker lab-report insights API.',
@@ -57,7 +57,7 @@ export const experience: ExperienceEntry[] = [
     dates: 'Oct 2025 — Apr 2026',
     role: 'Data Scientist',
     bullets: [
-      'Led AI/ML delivery on a compressed product roadmap — shipped 4 production systems in 7 months across enterprise products.',
+      'Led AI/ML delivery on a compressed product roadmap: shipped 4 production systems in 7 months across enterprise products.',
       'Built NeuroMail V3, an AI email command center with LangGraph multi-agent orchestration and local Mistral 7B summarization, reducing manual email-processing time ~60% for a 50-person org.',
       'Architected a cross-platform team-collaboration suite (web + mobile) with real-time chat, RBAC, and push notifications, consolidating 3 tools into one for 30+ daily active users.',
       'Built a RAG document Q&A system with Pinecone vector search and source attribution across 10K+ documents, cutting research time from hours to minutes.',
