@@ -23,10 +23,11 @@ export const experience: ExperienceEntry[] = [
     bullets: [
       'Own the data value chain of PerkMap, a geospatial perks-discovery platform: a crawling + LLM-extraction pipeline converting unstructured promo pages into a deduplicated, geocoded deals catalogue.',
       'Designed the intelligent features: a location-aware GPT discovery assistant (structured JSON outputs + web search) and multimodal poster-OCR auto-fill, behind a swappable multi-provider LLM abstraction.',
-      'Built merchant analytics: audience dashboards and a privacy-preserving geospatial activity heatmap with consent gating and small-cohort suppression.',
-      'Shipped the delivery surfaces end to end: a 5-city consumer app, live on Google Play and the App Store, and a bilingual (EN/AR) merchant portal on a Supabase/Postgres API with JWT + Row-Level Security.',
+      'Rebuilt the driver-analytics dashboards of GenixDrive, a connected-car telematics app (Android and iOS), and specified their API contracts: drive-score comparisons with other drivers by country, region and city, distance-bucket histograms, driving-time distributions and driving-event breakdowns.',
+      'Built PerkMap merchant analytics, including a privacy-preserving geospatial heatmap with consent gating and small-cohort suppression, and shipped its delivery surfaces: a 5-city consumer app live on Google Play and the App Store, and a bilingual (EN/AR) merchant portal on a Supabase/Postgres API with JWT and Row-Level Security.',
+      'Led the Flutter rebuild of the GenixDrive app for its 3.0 release, authoring over 80% of the changes: consent-scoped live-location and trip sharing, group drives with live ETAs over Socket.IO and Google Maps, a push-notification router for ~90 event types, 480+ automated tests and a Codemagic-to-TestFlight pipeline, against a NestJS/PostGIS backend on AWS.',
     ],
-    tech: ['LLM Extraction', 'OpenAI', 'Supabase', 'Postgres', 'React Native', 'Expo', 'Next.js'],
+    tech: ['LLM Extraction', 'OpenAI', 'Supabase', 'Postgres', 'Flutter', 'React Native', 'Socket.IO', 'Next.js'],
   },
   {
     company: 'UBE Labs',

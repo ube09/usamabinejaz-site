@@ -58,6 +58,40 @@ export const projects: PortfolioProject[] = [
     client: 'AiGenix (employer product)',
   },
   {
+    id: 'genixdrive',
+    title: 'GenixDrive — Connected-Car Telematics App',
+    kicker: 'Telematics & Driver Analytics',
+    category: 'fullstack',
+    secondary: ['datasci'],
+    description:
+      'Connected-car telematics app for Android and iOS: drive-score dashboards that compare each driver with others by country, region, and city, consent-scoped live-location sharing, and group drives with live ETAs.',
+    metric: 'Android & iOS · 124K-line Flutter codebase',
+    tech: ['Flutter', 'Dart', 'Socket.IO', 'Firebase', 'Google Maps API', 'fl_chart', 'REST (NestJS)', 'Codemagic CI'],
+    link: { type: 'case-study' },
+    image: '/images/portfolio/genixdrive/cover.webp',
+    featured: true,
+    year: '2026',
+    client: 'AiGenix (employer product)',
+    caseStudy: {
+      challenge:
+        "GenixDrive, AiGenix's driving app, needed its next generation: a drive score people can act on, location sharing that respects consent, and group features that work in real time on both platforms.",
+      approach:
+        'Led the Flutter rebuild for the 3.0 release, authoring over 80% of the changes; a collaborator built the NestJS/PostGIS backend against API contracts we defined together. Rebuilt the dashboard around the drive score with comparisons by country, region, and city, distance-bucket histograms, and driving-time distribution, then added consent-scoped live-location sharing, group drives with live ETAs over Socket.IO and Google Maps, a push-notification router for about 90 event types, and 480-plus tests on a Codemagic-to-TestFlight pipeline. Backend on AWS; 3.0 is in pre-launch.',
+      results: [
+        { label: 'Screens', value: 91, suffix: '' },
+        { label: 'Endpoints Integrated', value: 100, suffix: '+' },
+        { label: 'Automated Tests', value: 480, suffix: '+' },
+        { label: 'Lines of Dart', value: 124, suffix: 'K' },
+      ],
+      screenshots: [
+        '/images/portfolio/genixdrive/hero.webp',
+        '/images/portfolio/genixdrive/connections.webp',
+        '/images/portfolio/genixdrive/splash.webp',
+      ],
+      heroImage: '/images/portfolio/genixdrive/hero.webp',
+    },
+  },
+  {
     id: 'neuromail',
     title: 'NeuroMail V3 — AI Email Command Center',
     kicker: 'Email Intelligence',

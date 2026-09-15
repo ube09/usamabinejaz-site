@@ -36,13 +36,13 @@ export const skillGroups: SkillGroup[] = [
   },
   {
     label: 'Languages',
-    items: ['Python', 'SQL', 'TypeScript', 'JavaScript', 'C++', 'C#'],
+    items: ['Python', 'SQL', 'TypeScript', 'JavaScript', 'Dart', 'C++', 'C#'],
   },
   {
     label: 'Web / Cloud / DevOps',
     items: [
-      'FastAPI', 'Flask', 'Next.js', 'React', 'React Native', 'Electron',
-      'AWS', 'GCP', 'Azure', 'PostgreSQL', 'MySQL', 'MongoDB',
+      'FastAPI', 'Flask', 'Next.js', 'React', 'React Native', 'Flutter', 'Socket.IO', 'Electron',
+      'AWS', 'GCP', 'Azure', 'PostgreSQL', 'MySQL', 'MongoDB', 'Firebase',
       'Docker', 'Git', 'GitHub Actions', 'Render', 'Vercel',
       'Power BI', 'Tableau',
     ],

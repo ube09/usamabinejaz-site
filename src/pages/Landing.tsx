@@ -161,7 +161,7 @@ export default function Landing() {
                 <p className="mt-6 leading-relaxed text-gray-400">
                   I'm an AI/ML engineer who builds{' '}
                   <strong className="font-semibold text-gray-200">production systems — not just prototypes</strong>.
-                  Over the past 4+ years, I've worked across e-commerce, transport logistics, HR/SaaS,
+                  Over the past 4+ years, I've worked across e-commerce, transport logistics, telematics, HR/SaaS,
                   healthcare, and property valuation, shipping ML models, data pipelines, and
                   full-stack applications.
                 </p>
