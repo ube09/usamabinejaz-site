@@ -76,7 +76,7 @@ export const projects: PortfolioProject[] = [
       challenge:
         "GenixDrive, AiGenix's driving app, needed its next generation: a drive score people can act on, location sharing that respects consent, and group features that work in real time on both platforms.",
       approach:
-        'Led the Flutter rebuild for the 3.0 release, authoring over 80% of the changes; a collaborator built the NestJS/PostGIS backend against API contracts we defined together. Rebuilt the dashboard around the drive score with comparisons by country, region, and city, distance-bucket histograms, and driving-time distribution, then added consent-scoped live-location sharing, group drives with live ETAs over Socket.IO and Google Maps, a push-notification router for about 90 event types, and 480-plus tests on a Codemagic-to-TestFlight pipeline. Backend on AWS; 3.0 is in pre-launch.',
+        'Led the Flutter rebuild for the 3.0 release, authoring over 80% of the changes; a collaborator built the NestJS/PostGIS backend against API contracts we defined together. Rebuilt the dashboard around the drive score with comparisons by country, region, and city, distance-bucket histograms, and driving-time distribution, then added consent-scoped live-location sharing, group drives with live ETAs over Socket.IO and Google Maps, a push-notification router for about 90 event types, and 480-plus tests on a Codemagic-to-TestFlight pipeline. Backend on AWS Lightsail; 3.0 is in pre-launch.',
       results: [
         { label: 'Screens', value: 91, suffix: '' },
         { label: 'Endpoints Integrated', value: 100, suffix: '+' },
